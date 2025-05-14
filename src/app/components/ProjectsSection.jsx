@@ -17,11 +17,11 @@ const projectsData = [
   {
     id: 2,
     title: "Potography Portfolio Website",
-    description: "Project 2 description",
-    image: "/images/projects/2.png",
+    description: "Create a Pro cart to advertise your business, jobs, and real estate.",
+    image: "/images/projects/8.png",
     tag: ["All", "Web"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://pcard.pro/",
   },
   {
     id: 3,

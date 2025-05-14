@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
-
+import Image from 'next/image';
+import logo from '../../../public/images/projects/logo.webp'
 const navLinks = [
   {
     title: "About",
@@ -30,7 +31,13 @@ const Navbar = () => {
           href={"/"}
           className="text-2xl md:text-5xl text-white font-semibold"
         >
-          LOGO
+          <Image
+    src={logo} // Place your logo image in the public/ directory
+    alt="Logo"
+    width={500}
+    height={500}
+    className="md:w-[200px] md:h-[100px]"
+  />
         </Link>
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (

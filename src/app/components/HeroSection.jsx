@@ -237,8 +237,8 @@ const HeroSection = () => {
               whileTap="tap"
             >
               <Link
-                href="/"
-                className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 shadow-lg"
+ href="/mern.pdf"               
+  className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 shadow-lg"
               >
                 <span className="block  hover:bg-slate-800 rounded-full px-5 py-2 font-semibold transition-colors duration-300">
                   Download CV

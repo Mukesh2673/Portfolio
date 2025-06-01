@@ -202,8 +202,7 @@ const HeroSection = () => {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            I'm passionate about building responsive web apps that solve real-world problems. 
-            Let's create something great together.
+  Passionate developer who transforms ideas into powerful web applications. I specialize in creating seamless user experiences with modern technologies and clean, maintainable code.
           </motion.p>
 
           {/* Animated buttons */}
@@ -241,7 +240,7 @@ const HeroSection = () => {
                 href="/"
                 className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 shadow-lg"
               >
-                <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2 font-semibold transition-colors duration-300">
+                <span className="block  hover:bg-slate-800 rounded-full px-5 py-2 font-semibold transition-colors duration-300">
                   Download CV
                 </span>
               </Link>

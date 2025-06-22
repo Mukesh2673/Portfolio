@@ -20,8 +20,8 @@ const TAB_DATA = [
         <li>React</li>
         <li>Vuejs</li>
         <li>Angular</li>
-
-
+        <li>Aws</li>
+        <li>Deployment</li>
       </ul>
     ),
   },

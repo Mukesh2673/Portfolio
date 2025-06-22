@@ -100,6 +100,10 @@ const HeroSection = () => {
 
   return (
     <section className="lg:py-16 relative overflow-hidden" ref={ref}>
+
+
+
+      
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating orbs */}

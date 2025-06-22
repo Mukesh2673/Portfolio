@@ -15,7 +15,6 @@ export async function POST(request) {
         pass: process.env.EMAIL_PASS,
       },
     });
-
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_RECEIVER || process.env.EMAIL_USER,

@@ -1,30 +1,38 @@
+import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
 
-// const resend = new Resend(process.env.RESEND_API_KEY);
-// const fromEmail = process.env.FROM_EMAIL;
-const resend = new Resend('fsdfdklfkklsfdksdfjlkklsdfkl');
-const fromEmail = 'mukesh1233@gmail.com';
-
-export async function POST(req, res) {
-  const { email, subject, message } = await req.json();
-  console.log(email, subject, message);
+export async function POST(request) {
   try {
-    const data = await resend.emails.send({
-      from: fromEmail,
-      to: [fromEmail, email],
-      subject: subject,
-      react: (
-        <>
-          <h1>{subject}</h1>
-          <p>Thank you for contacting us!</p>
-          <p>New message submitted:</p>
-          <p>{message}</p>
-        </>
-      ),
+    const { email, subject, message } = await request.json();
+    if (!email || !message) {
+      return NextResponse.json({ success: false, message: "Email and message are required." }, { status: 400 });
+    }
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
     });
-    return NextResponse.json(data);
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_RECEIVER || process.env.EMAIL_USER,
+      subject: subject || "New Message from Portfolio",
+      html: `
+        <p><strong>From:</strong> ${email}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    return NextResponse.json({ success: true, message: "Email sent successfully." });
   } catch (error) {
-    return NextResponse.json({ error });
+    console.error("Email send error:", error);
+    return NextResponse.json({ success: false, message: "Failed to send email." }, { status: 500 });
   }
 }

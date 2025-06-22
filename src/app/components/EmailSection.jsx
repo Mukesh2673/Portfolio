@@ -4,6 +4,7 @@ import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import { toast } from "react-toastify";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -80,7 +81,15 @@ const EmailSection = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
+    const data1 = await response.json();
 
+    if (response.ok) {
+      toast.success("✅ Email sent successfully!");
+      setEmail("");
+      setMessage("");
+    } else {
+      toast.error(`❌ Failed to send email: ${data.message}`);
+    }
     if (response.status === 200) {
       console.log("Message sent.");
       setEmailSubmitted(true);
